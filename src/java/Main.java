@@ -22,17 +22,21 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("");   
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("DirectorioAngieePU");   
         EntityManager em = emf.createEntityManager();
         
-        em.getTransaction().begin();
-        ClaseT_Personal p = new ClaseT_Personal();
-        p.setNombre("Angiee");
-        p.setTelefono("123456".toString());
-        p.setCedula(Long.parseLong("1016047977"));
         
-        em.persist(p);
-        em.getTransaction().commit();
+        em.getTransaction().begin();
+        
+//        ClaseT_Personal p = new ClaseT_Personal();
+//        p.setNombre("Angiee");
+//        p.setTelefono("123456".toString());
+//       
+//        em.persist(p);
+//        em.getTransaction().commit();
+       
+        ClaseT_Personal clasePersonal = em.find(ClaseT_Personal.class, 1);
+        System.out.println("Su teléfono es: "+clasePersonal.getTelefono());
         em.close();
         emf.close();
         

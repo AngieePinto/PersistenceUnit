@@ -15,22 +15,23 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="T_PERSONAL")
+@Table(name="TPERSONAL")
 
 public class ClaseT_Personal {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
     @Column(name = "NOMBRE", length = 100)
     private String nombre;
     @Column(name = "TELEFONO", length = 15)
     private String telefono;
-    @Column(name = "CEDULA")
+/*    @Column(name = "CEDULA")
     private Long cedula;
     @Column(name = "GENERO")
     private boolean genero;
-    
+*/    
     public ClaseT_Personal(){
     
     }
@@ -62,7 +63,7 @@ public class ClaseT_Personal {
         this.telefono = telefono;
     }
 
-    public Long getCedula() {
+ /*   public Long getCedula() {
         return cedula;
     }
 
@@ -77,5 +78,5 @@ public class ClaseT_Personal {
     public void setGenero(boolean genero) {
         this.genero = genero;
     }
-
+*/
 }
